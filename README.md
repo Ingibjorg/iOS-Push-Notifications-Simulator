@@ -7,8 +7,8 @@ This is a push notification simulator kit from a [Ray Wenderlich tutorial] (http
 1. Export your push certificate from Keychain Access
 2. Save it as pushcert.p12 to a good place and remember the password you put in
 3. Open terminal and navigate to the folder that stores the certificate
-*4. Run the following command to create a pem file:* 
-`openssl pkcs12 -in pushcert.p12 -out puschcert.pem -nodes -clcerts`
+4. Run the following command to create a pem file:
+   `openssl pkcs12 -in pushcert.p12 -out puschcert.pem -nodes -clcerts`
 5. Move the pushcert.pem file to the iOS-Push-Notifications-Simulator folder and replace the existing pushcert.pem.
 6. Add the following two methods to AppDelegate in your project:
 ```swift
@@ -31,8 +31,9 @@ func application(application: UIApplication, didFailToRegisterForRemoteNotificat
 8. Open newpush.php and update $deviceToken to the copied value of your tokenString
 9. Update $passphrase in the same file with the password you gave your push certificate
 10. Open terminal and nagivate to the folder containing newpush.php and type
-*`php newspush.php 'Breaking News' 'https://raywenderlich.com'`*
-*If everything goes well, your terminal should display:*
-*Connected to APNS*
+   `php newspush.php 'Breaking News' 'https://raywenderlich.com'`
+
+If everything goes well, your terminal should display:
+Connected to APNS
 Message successfully delivered
 
