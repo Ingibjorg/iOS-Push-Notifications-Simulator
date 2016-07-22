@@ -39,5 +39,6 @@ func application(application: UIApplication, didFailToRegisterForRemoteNotificat
 If everything goes well, your terminal should display:
 
 Connected to APNS
+
 Message successfully delivered
 
