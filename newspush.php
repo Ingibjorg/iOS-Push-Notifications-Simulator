@@ -1,10 +1,10 @@
 <?php
 
 // Put your device token here (without spaces):
-$deviceToken = 'ad648e26c765d78bad945eaf7eed7b192ffe6ed47fbfcfe973a11e7ed96931f2';
+$deviceToken = '9b9b92e1719c3535fdeeaaafd00e8b53cdd9444a3315439ca6a3b7e14dbb21eb';
 
 // Put your private key's passphrase here:
-$passphrase = '';
+$passphrase = 'pushcert';
 
 $message = $argv[1];
 $url = $argv[2];
@@ -15,7 +15,7 @@ if (!$message || !$url)
 ////////////////////////////////////////////////////////////////////////////////
 
 $ctx = stream_context_create();
-stream_context_set_option($ctx, 'ssl', 'local_cert', 'ck.pem');
+stream_context_set_option($ctx, 'ssl', 'local_cert', 'pushcert.pem');
 stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
 
 // Open a connection to the APNS server
@@ -29,11 +29,17 @@ if (!$fp)
 echo 'Connected to APNS' . PHP_EOL;
 
 // Create the payload body
-$body['aps'] = array(
+$basicBody['aps'] = array(
   'alert' => $message,
   'sound' => 'default',
   'link_url' => $url,
   );
+
+$customBody['custom_json'] = array(
+    'saleNumber' => "N09520",
+);
+  
+$body = array_merge($basicBody, $customBody);
 
 // Encode the payload as JSON
 $payload = json_encode($body);
