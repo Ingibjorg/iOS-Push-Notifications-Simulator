@@ -9,7 +9,7 @@ This is a push notification simulator kit from a [Ray Wenderlich tutorial] (http
 3. Open terminal and navigate to the folder that stores the certificate
 4. Run the following command to create a pem file:
 
-  `openssl pkcs12 -in pushcert.p12 -out puschcert.pem -nodes -clcerts`
+  `openssl pkcs12 -in pushcert.p12 -out pushcert.pem -nodes -clcerts`
   
 5. Move the pushcert.pem file to the iOS-Push-Notifications-Simulator folder and replace the existing pushcert.pem.
 6. Add the following two methods to AppDelegate in your project:
